@@ -1,0 +1,15 @@
+com/mimacom/tastkmanager/service/ITaskManagerService.class
+com/mimacom/tastkmanager/service/TaskManagerServiceImpl.class
+com/mimacom/tastkmanager/model/TaskState.class
+com/mimacom/tastkmanager/model/InputTask.class
+com/mimacom/tastkmanager/model/OutputTask$OutputTaskBuilder.class
+com/mimacom/tastkmanager/TaskManagerApplication.class
+com/mimacom/tastkmanager/model/InputTask$InputTaskBuilder.class
+com/mimacom/tastkmanager/controller/TaskManagerController.class
+com/mimacom/tastkmanager/model/InputUdateTask$InputUdateTaskBuilder.class
+com/mimacom/tastkmanager/constants/Constants.class
+com/mimacom/tastkmanager/model/InputUser.class
+com/mimacom/tastkmanager/validation/ValidationSupport.class
+com/mimacom/tastkmanager/model/OutputTask.class
+com/mimacom/tastkmanager/model/InputUdateTask.class
+com/mimacom/tastkmanager/model/InputUser$InputUserBuilder.class
