@@ -20,9 +20,9 @@ public interface ITaskManagerService {
 	public String getUserTasks(String idUser);
 	public List<OutputTask> getUserTasksByState(String id, TaskState taskState);
 	public List<OutputTask> getUserTasksByDate(String id, LocalDateTime startDate, LocalDateTime endDate);
-	public String insertUser(InputUser inputUser);
+	public boolean saveUser(InputUser inputUser);
 	public String deleteUser(Long idUser);
-	public String insertTask(InputTask inputTask);
+	public boolean saveTask(InputTask inputTask);
 	public String updateTask(InputUdateTask inputUdateTask);
 	public String deleteTask(String idTask);
 
