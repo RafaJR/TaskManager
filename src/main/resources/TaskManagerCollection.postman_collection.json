@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "c42d12ae-98c8-4826-827c-2f94c7a3abc7",
+		"name": "TaskManagerCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\":\"User1\",\n    \"userEmail\":\"User1@email.es\",\n    \"userPassword\":\"1Aa?siguecontando\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/taskmanager/saveUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"taskmanager",
+						"saveUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"taskName\":\"task1\",\n    \"userName\":\"User2\",\n    \"starDate\":\"02/02/2021 17:23\",\n    \"endDate\":\"03/02/2021 17:23\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/taskmanager/saveTask",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"taskmanager",
+						"saveTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserTasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/taskmanager/getUserTasks?userName=User1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"taskmanager",
+						"getUserTasks"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "User1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTask",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idTask\":\"1\",\n    \"taskName\":\"updatedTaskName\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/taskmanager/updateTask",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"taskmanager",
+						"updateTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finishTask",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/taskmanager/finishTask?idTask=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"taskmanager",
+						"finishTask"
+					],
+					"query": [
+						{
+							"key": "idTask",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

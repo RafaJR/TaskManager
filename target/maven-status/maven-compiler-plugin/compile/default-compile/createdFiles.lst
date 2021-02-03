@@ -1,5 +1,6 @@
 com/mimacom/tastkmanager/service/ITaskManagerService.class
 com/mimacom/tastkmanager/dao/TaskManagerDao.class
+com/mimacom/tastkmanager/validation/InputUpdateTaskConstraint.class
 com/mimacom/tastkmanager/model/InputTask.class
 com/mimacom/tastkmanager/validation/UserNameValidator.class
 com/mimacom/tastkmanager/validation/PasswordValidator.class
@@ -16,6 +17,7 @@ com/mimacom/tastkmanager/model/OutputTask.class
 com/mimacom/tastkmanager/entities/User.class
 com/mimacom/tastkmanager/validation/EmailValidator.class
 com/mimacom/tastkmanager/validation/DateConstraint.class
+com/mimacom/tastkmanager/validation/InputUpdateTaskValidator.class
 com/mimacom/tastkmanager/entities/Task$TaskBuilder.class
 com/mimacom/tastkmanager/service/TaskManagerServiceImpl.class
 com/mimacom/tastkmanager/model/TaskState.class
