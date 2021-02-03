@@ -37,9 +37,37 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 	@Autowired
 	TaskManagerDao taskManagerDao;
 
-//	public boolean finishTask() {
-//		
-//	}
+	public boolean finishTask(@NotNull Long idTask) {
+		
+		return taskManagerDao.finishTask(idTask);
+		
+	}
+
+	@Override
+	public boolean updateTask(@NotNull @Valid InputUdateTask inputUdateTask) {
+
+		Optional<Task> optTask = taskManagerDao.findById(inputUdateTask.getIdTask());
+
+		if (optTask.isPresent()) {
+
+			Task task = optTask.get();
+
+			task.setTaskName(inputUdateTask.getTaskName() != null ? inputUdateTask.getTaskName() : task.getTaskName());
+			task.setIsFinished(
+					inputUdateTask.getIsFinished() != null ? inputUdateTask.getIsFinished() : task.getIsFinished());
+			task.setStartDate(inputUdateTask.getStarDate() != null
+					? LocalDateTime.parse(inputUdateTask.getStarDate(), TaskManagerConstants.DATE_FORMAT)
+					: task.getStartDate());
+			task.setEndDate(inputUdateTask.getEndDate() != null
+					? LocalDateTime.parse(inputUdateTask.getEndDate(), TaskManagerConstants.DATE_FORMAT)
+					: task.getEndDate());
+
+			return taskManagerDao.updateTask(task);
+		}
+
+		return false;
+
+	}
 
 	@Override
 	@Transactional
@@ -100,12 +128,6 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 
 	@Override
 	public String deleteUser(Long idUser) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String updateTask(InputUdateTask inputUdateTask) {
 		// TODO Auto-generated method stub
 		return null;
 	}

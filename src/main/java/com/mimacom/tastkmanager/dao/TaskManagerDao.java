@@ -23,9 +23,30 @@ public class TaskManagerDao {
 	@Autowired
 	private ITaskDao iTaskDao;
 	
-	public boolean updateTask(Task task) {
+	public boolean finishTask(@NotNull Long idTask) {
 		
-		return iTaskDao.save(task).equals(task);
+		Optional<Task> optTask = this.findById(idTask);
+		
+		if(optTask.isPresent()) {
+			Task task = optTask.get();
+			task.setIsFinished(true);
+			return iTaskDao.save(task).equals(task);
+		}
+		
+		return false;
+		
+	}
+	
+	public Optional<Task> findById(Long idTask) {
+		return iTaskDao.findById(idTask);
+	}
+	
+	public boolean updateTask(@NotNull Task task) {
+		
+		if(task.getIdTask() != null) {
+			return iTaskDao.save(task).equals(task);
+		}
+		return false;
 		
 	}
 	

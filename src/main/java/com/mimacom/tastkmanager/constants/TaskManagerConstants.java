@@ -12,6 +12,8 @@ public class TaskManagerConstants {
 	public static final String NEW_USER = "A new user (%s) has been saved";
 	public static final String NEW_TASK = "A new task (%s) has been saved";
 	public static final String USER_TASKS_NOT_FOUND = "Tasks for user %s not founds";
+	public static final String UPDATED_TASK = "The task %s has been updated";
+	public static final String FINISHED_TASK = "The task %s has been finished";
 	
 	// Input constraints messages
 	public static final String NOT_NULL_USER_NAME = "The user name can not be null";
@@ -40,6 +42,8 @@ public class TaskManagerConstants {
 	// DAO error messages
 	public static final String SAVING_USER_ERROR_MESSAGE = "An error happened saving the user %s in database";
 	public static final String SAVING_TASK_ERROR_MESSAGE = "An error happened saving the task %s in database";
+	public static final String UPDATING_TASK_ERROR_MESSAGE = "An error happened updating task %s in database";
+	public static final String FINISHING_TASK_ERROR_MESSAGE = "An error happened finishing task %s in database";
 	
 	
 }

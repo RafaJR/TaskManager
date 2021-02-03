@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -19,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mimacom.tastkmanager.constants.TaskManagerConstants;
 import com.mimacom.tastkmanager.model.InputTask;
+import com.mimacom.tastkmanager.model.InputUdateTask;
 import com.mimacom.tastkmanager.model.InputUser;
 import com.mimacom.tastkmanager.model.OutputTask;
 import com.mimacom.tastkmanager.service.TaskManagerServiceImpl;
+import com.mimacom.tastkmanager.validation.InputUpdateTaskConstraint;
 import com.mimacom.tastkmanager.validation.TaskConstraint;
 import com.mimacom.tastkmanager.validation.UserNameConstraint;
 
@@ -36,6 +39,36 @@ public class TaskManagerController {
 
 	@Autowired
 	TaskManagerServiceImpl taskManagerService;
+
+	@PutMapping("/finishTask")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> finishTask(@NotNull Long idTask) {
+
+		boolean finishedTask = taskManagerService.finishTask(idTask);
+
+		return finishedTask ? new ResponseEntity<String>(
+				String.format(TaskManagerConstants.FINISHED_TASK, idTask.toString()), HttpStatus.OK)
+				: new ResponseEntity<String>(
+						String.format(TaskManagerConstants.FINISHING_TASK_ERROR_MESSAGE, idTask.toString()),
+						HttpStatus.INTERNAL_SERVER_ERROR);
+
+	}
+
+	@PutMapping("/updateTask")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> updateTask(
+			@RequestBody @NotNull(message = TaskManagerConstants.NOT_NULL_TASK) @Valid /* @InputUpdateTaskConstraint */ InputUdateTask inputUdateTask) {
+
+		boolean update = taskManagerService.updateTask(inputUdateTask);
+
+		return update
+				? new ResponseEntity<String>(
+						String.format(TaskManagerConstants.UPDATED_TASK, inputUdateTask.toString()), HttpStatus.OK)
+				: new ResponseEntity<String>(
+						String.format(TaskManagerConstants.UPDATING_TASK_ERROR_MESSAGE, inputUdateTask.toString()),
+						HttpStatus.INTERNAL_SERVER_ERROR);
+
+	}
 
 	@GetMapping("/getUserTasks")
 	@ResponseStatus(HttpStatus.OK)

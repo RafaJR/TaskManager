@@ -9,6 +9,8 @@ package com.mimacom.tastkmanager.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import com.mimacom.tastkmanager.model.InputTask;
 import com.mimacom.tastkmanager.model.InputUdateTask;
 import com.mimacom.tastkmanager.model.InputUser;
@@ -23,7 +25,8 @@ public interface ITaskManagerService {
 	public boolean saveUser(InputUser inputUser);
 	public String deleteUser(Long idUser);
 	public boolean saveTask(InputTask inputTask);
-	public String updateTask(InputUdateTask inputUdateTask);
+	public boolean updateTask(InputUdateTask inputUdateTask);
 	public String deleteTask(String idTask);
+	public boolean finishTask(Long idTask);
 
 }

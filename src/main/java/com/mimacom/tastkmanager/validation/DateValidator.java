@@ -14,14 +14,17 @@ import com.mimacom.tastkmanager.constants.TaskManagerConstants;
  */
 public class DateValidator implements ConstraintValidator<DateConstraint, String> {
 	
-	// String regex to check only alphanumeric characters in the user name
-
 	@Override
 	public boolean isValid(String dateTime, ConstraintValidatorContext context) {
-		try {
-			TaskManagerConstants.DATE_FORMAT.parse(dateTime);
-		}catch(DateTimeParseException e) {
-			return false;
+		
+		if(dateTime != null) {
+
+			try {
+				TaskManagerConstants.DATE_FORMAT.parse(dateTime);
+			}catch(DateTimeParseException e) {
+				return false;
+			}
+			
 		}
 		
 		return true;
