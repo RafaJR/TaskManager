@@ -22,5 +22,6 @@ public class InputUdateTask {
 	private String taskName;
 	private String starDate;
 	private String endDate;
+	private boolean isFinished;
 
 }

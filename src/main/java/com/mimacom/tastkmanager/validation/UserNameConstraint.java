@@ -19,7 +19,7 @@ import com.mimacom.tastkmanager.constants.TaskManagerConstants;
  */
 @Documented
 @Constraint(validatedBy = UserNameValidator.class)
-@Target({ ElementType.METHOD, ElementType.FIELD })
+@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UserNameConstraint {
 	String message() default TaskManagerConstants.USER_NAME_CONSTRAINT_MESSAGE;

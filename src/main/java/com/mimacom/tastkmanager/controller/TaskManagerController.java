@@ -1,5 +1,8 @@
 package com.mimacom.tastkmanager.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -17,8 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mimacom.tastkmanager.constants.TaskManagerConstants;
 import com.mimacom.tastkmanager.model.InputTask;
 import com.mimacom.tastkmanager.model.InputUser;
+import com.mimacom.tastkmanager.model.OutputTask;
 import com.mimacom.tastkmanager.service.TaskManagerServiceImpl;
 import com.mimacom.tastkmanager.validation.TaskConstraint;
+import com.mimacom.tastkmanager.validation.UserNameConstraint;
 
 /**
  * @author Rafael Jiménez Reina
@@ -32,12 +37,26 @@ public class TaskManagerController {
 	@Autowired
 	TaskManagerServiceImpl taskManagerService;
 
+	@GetMapping("/getUserTasks")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> getUserTasks(
+			@NotNull(message = TaskManagerConstants.NOT_NULL_USER) @UserNameConstraint String userName) {
+
+		Optional<List<OutputTask>> optListOutputTask = Optional.ofNullable(taskManagerService.getUserTasks(userName));
+
+		return optListOutputTask.isPresent()
+				? new ResponseEntity<List<OutputTask>>(optListOutputTask.get(), HttpStatus.OK)
+				: new ResponseEntity<String>(String.format(TaskManagerConstants.USER_TASKS_NOT_FOUND, userName),
+						HttpStatus.NOT_FOUND);
+
+	}
+
 	@PostMapping("/saveTask")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> saveTask(
-			@RequestBody @NotNull(message = "The task to save can't be null") @TaskConstraint @Valid InputTask inputTask) {
-		
-		return taskManagerService.saveTask(inputTask) 
+			@RequestBody @NotNull(message = TaskManagerConstants.NOT_NULL_TASK) @Valid @TaskConstraint InputTask inputTask) {
+
+		return taskManagerService.saveTask(inputTask)
 				? new ResponseEntity<String>(String.format(TaskManagerConstants.NEW_TASK, inputTask.toString()),
 						HttpStatus.OK)
 				: new ResponseEntity<String>(
@@ -48,7 +67,7 @@ public class TaskManagerController {
 	@PostMapping("/saveUser")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> saveUser(
-			@RequestBody @NotNull(message = "The user to save can't be null") @Valid InputUser inputUser) {
+			@RequestBody @NotNull(message = TaskManagerConstants.NOT_NULL_USER) @Valid InputUser inputUser) {
 
 		return taskManagerService.saveUser(inputUser)
 				? new ResponseEntity<String>(String.format(TaskManagerConstants.NEW_USER, inputUser.toString()),
@@ -57,13 +76,6 @@ public class TaskManagerController {
 						String.format(TaskManagerConstants.SAVING_USER_ERROR_MESSAGE, inputUser.toString()),
 						HttpStatus.INTERNAL_SERVER_ERROR);
 
-	}
-
-	@GetMapping("/getUserTasks")
-	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> getUserTasks(@RequestBody @NotNull String idUser) {
-
-		return new ResponseEntity<String>(taskManagerService.getUserTasks(idUser), HttpStatus.OK);
 	}
 
 }

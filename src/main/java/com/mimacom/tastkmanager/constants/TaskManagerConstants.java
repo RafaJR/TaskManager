@@ -11,12 +11,15 @@ public class TaskManagerConstants {
 	// Process trace messages
 	public static final String NEW_USER = "A new user (%s) has been saved";
 	public static final String NEW_TASK = "A new task (%s) has been saved";
+	public static final String USER_TASKS_NOT_FOUND = "Tasks for user %s not founds";
 	
 	// Input constraints messages
 	public static final String NOT_NULL_USER_NAME = "The user name can not be null";
 	public static final String NOT_NULL_TASK_NAME = "The task name can not be null";
 	public static final String NOT_NULL_START_DATE = "The start date can not be null";
 	public static final String NOT_NULL_END_DATE = "The start date can not be null";
+	public static final String NOT_NULL_USER = "The user to save can't be null";
+	public static final String NOT_NULL_TASK = "The task to save can't be null";
 	public static final String USER_NAME_CONSTRAINT_MESSAGE = "There is an error at the user name field."
 	+ "The user name can only contain a maximum of 20 alphanumeric characters"
 	+ " between uppercase or lowercase letters, numbers from 0 to 9, and '_' character.";
@@ -33,7 +36,6 @@ public class TaskManagerConstants {
 			+ "\t- Password must contain a length of at least 8 characters and a maximum of 20 characters.";
 	public static final String DATE_CONSTRAINT_MESSAGE = "The dates must be introduced with format 'dd/MM/yyyy HH:mm'";
 	public static final String TASK_DATES_CONSTRAINT_MESSAGE = "The start date must be before de end date";
-	
 	
 	// DAO error messages
 	public static final String SAVING_USER_ERROR_MESSAGE = "An error happened saving the user %s in database";

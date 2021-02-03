@@ -6,12 +6,16 @@ package com.mimacom.tastkmanager.service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mimacom.tastkmanager.constants.TaskManagerConstants;
 import com.mimacom.tastkmanager.dao.TaskManagerDao;
 import com.mimacom.tastkmanager.entities.Task;
 import com.mimacom.tastkmanager.entities.User;
@@ -20,6 +24,8 @@ import com.mimacom.tastkmanager.model.InputUdateTask;
 import com.mimacom.tastkmanager.model.InputUser;
 import com.mimacom.tastkmanager.model.OutputTask;
 import com.mimacom.tastkmanager.model.TaskState;
+import com.mimacom.tastkmanager.validation.TaskConstraint;
+import com.mimacom.tastkmanager.validation.UserNameConstraint;
 
 /**
  * @author Rafael Jiménez Reina
@@ -30,14 +36,15 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 
 	@Autowired
 	TaskManagerDao taskManagerDao;
-	
+
 //	public boolean finishTask() {
 //		
 //	}
 
 	@Override
 	@Transactional
-	public boolean saveTask(InputTask inputTask) {
+	public boolean saveTask(
+			@NotNull(message = TaskManagerConstants.NOT_NULL_TASK) @Valid @TaskConstraint InputTask inputTask) {
 
 		Optional<User> optUser = Optional.ofNullable(taskManagerDao.findUserByUserName(inputTask.getUserName()));
 		boolean checkTaskSave = optUser.isPresent();
@@ -53,16 +60,30 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 	}
 
 	@Override
-	public boolean saveUser(InputUser inputUser) {
+	public boolean saveUser(@NotNull(message = TaskManagerConstants.NOT_NULL_USER) @Valid InputUser inputUser) {
 
 		return taskManagerDao.saveUser(inputUser.toEntity());
 	}
 
 	@Override
-	public String getUserTasks(String idUser) {
+	public List<OutputTask> getUserTasks(
+			@NotNull(message = TaskManagerConstants.NOT_NULL_USER) @UserNameConstraint String userName) {
 
-		long lIdUser = Long.valueOf(idUser);
-		return String.format("Tasks for user %s from the beginins of time to today", idUser);
+		Optional<List<Task>> optTaskList = Optional.ofNullable(taskManagerDao.getUserTasks(userName));
+
+		if (optTaskList.isPresent()) {
+
+			return optTaskList.get().parallelStream()
+					.map(task -> OutputTask.builder().taskName(task.getTaskName())
+							.userName(task.getUserOwner().getUserName())
+							.starDate(task.getStartDate().format(TaskManagerConstants.DATE_FORMAT))
+							.endDate(task.getEndDate().format(TaskManagerConstants.DATE_FORMAT))
+							.isFinished(task.getIsFinished()).build())
+					.collect(Collectors.toList());
+
+		}
+
+		return null;
 	}
 
 	@Override

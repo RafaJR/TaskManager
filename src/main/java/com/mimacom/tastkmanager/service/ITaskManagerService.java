@@ -17,7 +17,7 @@ import com.mimacom.tastkmanager.model.TaskState;
 
 public interface ITaskManagerService {
 	
-	public String getUserTasks(String idUser);
+	public List<OutputTask> getUserTasks(String idUser);
 	public List<OutputTask> getUserTasksByState(String id, TaskState taskState);
 	public List<OutputTask> getUserTasksByDate(String id, LocalDateTime startDate, LocalDateTime endDate);
 	public boolean saveUser(InputUser inputUser);

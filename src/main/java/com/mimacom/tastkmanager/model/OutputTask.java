@@ -14,10 +14,10 @@ import lombok.ToString;
 @ToString
 @Builder
 public class OutputTask {
-
+	
+	private String taskName;
 	private String userName;
-	private String userEmail;
-	private String userPassword;
-	private String state;
-
+	private String starDate;
+	private String endDate;
+	private boolean isFinished;
 }
