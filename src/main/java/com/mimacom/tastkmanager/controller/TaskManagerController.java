@@ -18,6 +18,7 @@ import com.mimacom.tastkmanager.constants.TaskManagerConstants;
 import com.mimacom.tastkmanager.model.InputTask;
 import com.mimacom.tastkmanager.model.InputUser;
 import com.mimacom.tastkmanager.service.TaskManagerServiceImpl;
+import com.mimacom.tastkmanager.validation.TaskConstraint;
 
 /**
  * @author Rafael Jiménez Reina
@@ -34,7 +35,7 @@ public class TaskManagerController {
 	@PostMapping("/saveTask")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> saveTask(
-			@RequestBody @NotNull(message = "The task to save can't be null") @Valid InputTask inputTask) {
+			@RequestBody @NotNull(message = "The task to save can't be null") @TaskConstraint @Valid InputTask inputTask) {
 		
 		return taskManagerService.saveTask(inputTask) 
 				? new ResponseEntity<String>(String.format(TaskManagerConstants.NEW_TASK, inputTask.toString()),
