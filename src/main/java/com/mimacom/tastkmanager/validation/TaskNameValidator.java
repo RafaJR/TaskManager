@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 /**
  * @author Rafael Jiménez Reina
- * @email rafael.jimenez.reina@gmail.com Accuracy (integer numbers) validation
+ * @email rafael.jimenez.reina@gmail.com
  *        constraint.
  */
 public class TaskNameValidator implements ConstraintValidator<TaskNameConstraint, String> {

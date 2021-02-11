@@ -17,6 +17,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * @author Rafael Jiménez Reina
+ * @email rafael.jimenez.reina@gmail.com 
+ * User entity
+ */
 @Entity
 @Table(name="T_USER")
 @Data

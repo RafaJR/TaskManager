@@ -1,7 +1,9 @@
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/dao/ITaskDao.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/DateValidator.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/TaskNameValidator.java
+/home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/IdTaskValidator.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/UserNameConstraint.java
+/home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/IdUserValidator.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/PasswordValidator.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/model/InputUser.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/model/OutputTask.java
@@ -9,6 +11,7 @@
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/UserNameValidator.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/InputUpdateTaskValidator.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/model/TaskState.java
+/home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/IdTaskConstraint.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/DateConstraint.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/model/InputUdateTask.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/model/InputTask.java
@@ -24,6 +27,7 @@
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/entities/User.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/TaskConstraint.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/dao/TaskManagerDao.java
+/home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/IdUserConstraint.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/validation/PasswordConstraint.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/service/TaskManagerServiceImpl.java
 /home/eihwaz/DropboxBackUp/Programacion/Java/EntornosDeDesarrollo/20200417WorkSpace/TaskManager/src/main/java/com/mimacom/tastkmanager/controller/TaskManagerController.java

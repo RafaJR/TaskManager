@@ -37,6 +37,18 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 	@Autowired
 	TaskManagerDao taskManagerDao;
 
+	@Override
+	public boolean deleteUser(@NotNull Long idUser) {
+		
+		return taskManagerDao.deleteUser(idUser);
+	}
+	
+	@Override
+	public boolean deleteTask(@NotNull Long idTask) {
+		
+		return taskManagerDao.deleteTask(idTask);
+	}
+
 	public boolean finishTask(@NotNull Long idTask) {
 		
 		return taskManagerDao.finishTask(idTask);
@@ -46,7 +58,7 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 	@Override
 	public boolean updateTask(@NotNull @Valid InputUdateTask inputUdateTask) {
 
-		Optional<Task> optTask = taskManagerDao.findById(inputUdateTask.getIdTask());
+		Optional<Task> optTask = taskManagerDao.findTaskById(inputUdateTask.getIdTask());
 
 		if (optTask.isPresent()) {
 
@@ -125,17 +137,4 @@ public class TaskManagerServiceImpl implements ITaskManagerService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public String deleteUser(Long idUser) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String deleteTask(String idTask) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

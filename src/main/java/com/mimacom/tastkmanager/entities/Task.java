@@ -17,6 +17,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Rafael Jiménez Reina
+ * @email rafael.jimenez.reina@gmail.com 
+ * Task entity
+ */
 @Entity
 @Table(name = "T_TASK", uniqueConstraints = {
 		@UniqueConstraint(columnNames = { "FK_USER", "START_DATE" }),

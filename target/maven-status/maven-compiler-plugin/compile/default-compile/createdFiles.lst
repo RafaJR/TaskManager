@@ -8,10 +8,12 @@ com/mimacom/tastkmanager/model/InputTask$InputTaskBuilder.class
 com/mimacom/tastkmanager/validation/TaskConstraint.class
 com/mimacom/tastkmanager/validation/TaskValidator.class
 com/mimacom/tastkmanager/entities/User$UserBuilder.class
+com/mimacom/tastkmanager/validation/IdTaskConstraint.class
 com/mimacom/tastkmanager/validation/DateValidator.class
 com/mimacom/tastkmanager/model/InputUdateTask$InputUdateTaskBuilder.class
 com/mimacom/tastkmanager/validation/TaskNameConstraint.class
 com/mimacom/tastkmanager/model/InputUser.class
+com/mimacom/tastkmanager/validation/IdUserValidator.class
 com/mimacom/tastkmanager/validation/ValidationSupport.class
 com/mimacom/tastkmanager/model/OutputTask.class
 com/mimacom/tastkmanager/entities/User.class
@@ -22,6 +24,7 @@ com/mimacom/tastkmanager/entities/Task$TaskBuilder.class
 com/mimacom/tastkmanager/service/TaskManagerServiceImpl.class
 com/mimacom/tastkmanager/model/TaskState.class
 com/mimacom/tastkmanager/validation/EmailConstraint.class
+com/mimacom/tastkmanager/validation/IdTaskValidator.class
 com/mimacom/tastkmanager/validation/PasswordConstraint.class
 com/mimacom/tastkmanager/model/OutputTask$OutputTaskBuilder.class
 com/mimacom/tastkmanager/TaskManagerApplication.class
@@ -30,6 +33,7 @@ com/mimacom/tastkmanager/entities/Task.class
 com/mimacom/tastkmanager/controller/TaskManagerController.class
 com/mimacom/tastkmanager/dao/IUserDao.class
 com/mimacom/tastkmanager/dao/ITaskDao.class
+com/mimacom/tastkmanager/validation/IdUserConstraint.class
 com/mimacom/tastkmanager/model/InputUdateTask.class
 com/mimacom/tastkmanager/model/InputUser$InputUserBuilder.class
 com/mimacom/tastkmanager/validation/UserNameConstraint.class

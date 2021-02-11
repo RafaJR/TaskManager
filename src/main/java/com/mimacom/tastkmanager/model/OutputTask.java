@@ -7,7 +7,7 @@ import lombok.ToString;
 /**
  * @author Rafael Jiménez Reina 
  * @email rafael.jimenez.reina@gmail.com
- * Input user
+ * Output task model
  */
 
 @Data

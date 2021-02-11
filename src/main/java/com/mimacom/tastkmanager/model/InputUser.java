@@ -15,7 +15,8 @@ import lombok.ToString.Exclude;
 
 /**
  * @author Rafael Jiménez Reina
- * @email rafael.jimenez.reina@gmail.com Input user
+ * @email rafael.jimenez.reina@gmail.com 
+ * Input user model
  */
 
 @Data
